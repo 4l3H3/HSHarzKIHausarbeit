@@ -1,5 +1,5 @@
 from numpy import dot, array, zeros
-from random import choice
+from random import choice, seed
 
 class Perceptron:
     
@@ -46,9 +46,10 @@ def main():
         (array([1,1,0,1]), 1),
         (array([1,1,1,1]), 1),
     ]    
-    w = zeros(3) # [0.,0.,0.]
-    iterations = 30
+    w = zeros(4) # [0.,0.,0.,0.]
+    iterations = 200
 
+    seed(12)
     p = Perceptron(iterations=iterations, training_data_set=training_data_set)
     p.fit(training_data_set, w)
 
