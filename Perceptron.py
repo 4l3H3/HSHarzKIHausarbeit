@@ -35,15 +35,16 @@ class Perceptron:
 
 
 def main():
+    # 3 Inputs, 1 Bias, 1 expected Output
     training_data_set = [
-        (array([0,0,0]), 0),
-        (array([0,0,1]), 0),
-        (array([0,1,0]), 0),
-        (array([0,1,1]), 1),
-        (array([1,0,0]), 0),
-        (array([1,0,1]), 1),
-        (array([1,1,0]), 1),
-        (array([1,1,1]), 1),
+        (array([0,0,0,1]), 0),
+        (array([0,0,1,1]), 0),
+        (array([0,1,0,1]), 0),
+        (array([0,1,1,1]), 1),
+        (array([1,0,0,1]), 0),
+        (array([1,0,1,1]), 1),
+        (array([1,1,0,1]), 1),
+        (array([1,1,1,1]), 1),
     ]    
     w = zeros(3) # [0.,0.,0.]
     iterations = 30
