@@ -1,4 +1,4 @@
-X = [0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1];
+X = [0 0 0 1; 0 0 1 1; 0 1 0 1; 0 1 1 1; 1 0 0 1; 1 0 1 1; 1 1 0 1; 1 1 1 1];
 y = [0 0 0 1 0 1 1 1];
 
 function y = major(value)
@@ -10,7 +10,7 @@ function y = major(value)
 endfunction
 
 function w = fit(X, y, loops = 30)
-  w = zeros(1,3);
+  w = zeros(1,4);
   for index = 1:loops
     random = randi(8);
     x = X(random, :);
