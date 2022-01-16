@@ -1,23 +1,21 @@
 X = [0 0 0 1; 0 0 1 1; 0 1 0 1; 0 1 1 1; 1 0 0 1; 1 0 1 1; 1 1 0 1; 1 1 1 1];
 y = [0 0 0 1 0 1 1 1];
 
-function y = major(value)
-  if (value > 3/2)
-    y = 1;
-  else
-    y = 0;
-  endif
+function y = sigmoid(x) #definition für vektoren
+  y = 1 / (1 + exp(-x));
 endfunction
 
-function w = fit(X, y, loops = 30)
-  w = zeros(1,4);
+function w = fit(X, y, loops = 100, learnrate = 0.2)
+  length = columns(X);
+  w = zeros(1,length);
   for index = 1:loops
     random = randi(8);
     x = X(random, :);
     expected = y(random);
-    hypothesis = major(dot(w,x));
+    hypothesis = sigmoid(dot(w,x));
+    #stufenfunktion 
     error = expected - hypothesis;
-    w = w + error * x;
+    w += learnrate * error * x;
   endfor
 endfunction
 
